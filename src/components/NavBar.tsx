@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";  // Added X icon for close button
+import { Menu, X } from "lucide-react"; // Added X icon for close button
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ const Navbar = () => {
       {/* Futuristic Background Elements */}
       <div className="absolute inset-0 w-full h-full bg-[url('/images/particle-bg.svg')] bg-cover opacity-15 animate-particles pointer-events-none -z-[1]" />
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-radial-gradient from-purple-500/30 to-transparent rounded-full opacity-40 animate-float-1 blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-radial-gradient from-blue-500/30 to-transparent rounded-full opacity-40 animate-float-2 blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-rial-gradient from-blue-500/30 to-transparent rounded-full opacity-40 animate-float-2 blur-3xl" />
       <div className="absolute inset-0 w-full h-full bg-[url('/images/holographic-grid.svg')] bg-top bg-cover opacity-5 animate-grid-pan pointer-events-none" />
 
       {/* Main Navbar Container */}
@@ -86,7 +86,7 @@ const Navbar = () => {
           >
             <X size={28} />
           </button>
-          
+
           {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
             <Link
               key={item}
