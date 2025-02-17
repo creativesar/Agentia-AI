@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
@@ -32,11 +32,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative bg-animated-gradient py-36 text-center shadow-lg overflow-hidden h-[700px]">
+    <div className="relative bg-animated-gradient py-16 sm:py-36 text-center shadow-lg overflow-hidden h-[700px] sm:h-auto">
       {stars}
       <div className="aurora" />
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10 px-4">
         <div className="flex items-center justify-center mb-4 space-x-3 animate-fade-in">
           <h1 className="text-sm font-semibold font-['sansation'] text-gray-400">
             POWERED BY PANAVERSITY
@@ -44,12 +44,12 @@ const Hero = () => {
           <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6]" />
         </div>
 
-        <h2 className="text-7xl font-extrabold font-['sansation'] bg-clip-text text-transparent animate-gradient inline-block mb-4 animate-scale-up">
+        <h2 className="text-4xl sm:text-7xl font-extrabold font-['sansation'] bg-clip-text text-transparent animate-gradient inline-block mb-4 animate-scale-up">
           ENTERPRISE AI AGENT <span className="inline-block">For The Future</span>
         </h2>
 
         <div className="w-full max-w-lg flex flex-col gap-2 bg-gray-800 p-4 rounded-lg mx-auto text-center items-center justify-center animate-fade-in">
-          <div className="text-lg font-['sansation'] text-white text-center w-full flex items-center justify-center">
+          <div className="text-lg sm:text-xl font-['sansation'] text-white text-center w-full flex items-center justify-center">
             <span className="text-purple-400 mr-2">🤖</span>
             <div className="overflow-hidden">
               <Typewriter
@@ -70,7 +70,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex justify-center space-x-4 mt-6 animate-scale-up">
+        <div className="flex flex-wrap justify-center gap-4 mt-6 animate-scale-up">
           <Button text="Deploy Your AI Agent" />
           <Button text="Watch Demo" />
         </div>

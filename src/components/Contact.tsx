@@ -41,7 +41,7 @@ const ContactSection = () => {
 
         {/* Contact Form */}
         <form className="bg-gray-900 p-10 rounded-3xl shadow-2xl border border-gray-800 backdrop-blur-lg">
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <input
               type="text"
               placeholder="First Name"
@@ -65,7 +65,7 @@ const ContactSection = () => {
           ></textarea>
           <a
             href="#"
-            className="relative hidden md:inline-flex items-center justify-center px-6 py-3 mt-6 text-lg font-semibold font-['sansation'] text-white 
+            className="relative inline-flex items-center justify-center px-6 py-3 mt-6 text-lg font-semibold font-['sansation'] text-white 
                      bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-lg overflow-hidden 
                      transition-all duration-300 hover:bg-white/20 hover:border-white/30 group"
           >
