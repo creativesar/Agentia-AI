@@ -2,32 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@keyframes galaxyAnimation {
+  0% { background-position: 0% 50%; filter: brightness(1.05) contrast(1.08) saturate(1.1); }
+  25% { background-position: 40% 80%; filter: brightness(1.1) contrast(1.2) saturate(1.2); }
+  50% { background-position: 90% 30%; filter: brightness(1.15) contrast(1.25) saturate(1.3); }
+  75% { background-position: 50% 50%; filter: brightness(1.1) contrast(1.2) saturate(1.2); }
+  100% { background-position: 0% 50%; filter: brightness(1.05) contrast(1.08) saturate(1.1); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.bg-animated-gradient {
+  background: radial-gradient(circle at 50% 50%,  
+    rgba(5, 10, 20, 0.98) 5%,    
+    rgba(10, 20, 35, 0.95) 20%,  
+    rgba(20, 40, 60, 0.85) 40%,  
+    rgba(15, 30, 55, 0.90) 60%,  
+    rgba(5, 10, 20, 0.98) 90%    
+  ),  
+  url('/galaxy-noise.png'); 
+
+  background-size: 500% 500%;
+  animation: galaxyAnimation 18s ease-in-out infinite alternate;
+  position: relative;
+  overflow: hidden;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* 🌌 Elegant Aurora Effect */
+.aurora {
+  position: absolute;
+  top: -35%;
+  left: 50%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(ellipse at 50% 0%,  
+    rgba(100, 200, 255, 0.25) 0%,  
+    rgba(50, 140, 220, 0.15) 50%,  
+    transparent 85%);
+  transform: translateX(-50%) rotate(20deg);
+  filter: blur(75px);
+  opacity: 0.5;
+  animation: auroraAnimation 9s ease-in-out infinite alternate;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@keyframes auroraAnimation {
+  0% { transform: translateX(-50%) rotate(18deg) scaleY(1); opacity: 0.35; }
+  50% { transform: translateX(-48%) rotate(24deg) scaleY(1.2); opacity: 0.6; }
+  100% { transform: translateX(-50%) rotate(20deg) scaleY(1); opacity: 0.4; }
 }
+
+/* ✨ Soft Sparkling Stars */
+.star {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  animation: sparkle 4s infinite ease-in-out alternate;
+  animation-delay: calc(var(--delay) * 1s);
+}
+
+@keyframes sparkle {
+  0% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.5); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+/* 🌠 Smooth Nebula Glow */
+.nebula {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 90%;
+  height: 140%;
+  background: radial-gradient(circle,  
+    rgba(180, 90, 255, 0.15) 0%,  
+    rgba(80, 50, 255, 0.08) 40%,  
+    transparent 75%);
+  transform: translateX(-50%);
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: nebulaAnimation 11s ease-in-out infinite alternate;
+}
+
+@keyframes nebulaAnimation {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.2; }
+  50% { transform: translateX(-52%) scale(1.1); opacity: 0.5; }
+  100% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+}
+
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 100%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 0%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-image: linear-gradient(90deg, #00ffcc, #007bff, #8a2be2, #ff00ff);
+  background-size: 400% 400%;
+  animation: gradientAnimation 4s infinite alternate ease-in-out;
+}
+
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, -40px) rotate(2deg); }
+}
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-30px, 30px) rotate(-3deg); }
+}
+@keyframes grid-pan {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-float-1 { animation: float-1 12s ease-in-out infinite; }
+.animate-float-2 { animation: float-2 14s ease-in-out infinite; }
+.animate-grid-pan { animation: grid-pan 120s linear infinite; }
+.animate-fadeIn { animation: fadeIn 0.5s ease-in-out; }
