@@ -32,6 +32,7 @@ const Navbar = () => {
               key={item}
               href={`/${item.toLowerCase()}`}
               className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
+              aria-label={`Navigate to ${item}`}
             >
               {item}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
@@ -55,16 +56,21 @@ const Navbar = () => {
               ☰
             </button>
           </SheetTrigger>
-          <SheetContent side="left" className="bg-black/90 text-white p-6 backdrop-blur-lg border-none">
+          <SheetContent side="left" className="bg-black/95 text-white p-6 backdrop-blur-lg border-none">
             <div className="flex flex-col space-y-4 mt-10">
               {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
-                <Link key={item} href={`/${item.toLowerCase()}`} className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group">
+                <Link 
+                  key={item} 
+                  href={`/${item.toLowerCase()}`} 
+                  className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
+                  aria-label={`Navigate to ${item}`}
+                >
                   {item}
                   <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
                   <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">→</span>
                 </Link>
               ))}
-              <a href="#" className="relative text-gray-300 hover:text-blue-500 transition-all duration-300 group">🚀 Launch Console</a>
+              <a href="#" className="relative text-gray-300 hover:text-blue-500 transition-all duration-300 group" aria-label="Launch Console">🚀 Launch Console</a>
             </div>
           </SheetContent>
         </Sheet>
