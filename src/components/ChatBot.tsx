@@ -82,7 +82,7 @@ const Chatbot = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-8 right-8 w-full max-w-md bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-xl shadow-2xl overflow-hidden sm:max-w-xs sm:right-5 sm:bottom-5"
+            className="fixed bottom-8 right-8 w-full max-w-md bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-xl shadow-2xl overflow-hidden sm:max-w-full sm:right-2 sm:bottom-2 sm:w-full"
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -121,7 +121,7 @@ const Chatbot = () => {
             </div>
 
             {/* Chat Messages */}
-            <div className="h-96 overflow-y-auto p-4 space-y-3 sm:h-80 sm:p-2">
+            <div className="h-96 overflow-y-auto p-4 space-y-3 sm:h-72 sm:p-2">
               <AnimatePresence>
                 {messages.map((msg, i) => (
                   <motion.div
