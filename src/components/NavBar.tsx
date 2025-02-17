@@ -1,7 +1,12 @@
 "use client";
 import { useState } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"; // Using Heroicons for hamburger and close icons
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet"; // Import ChadCN Sheet
 
 const Navbar = () => {
   return (
@@ -15,14 +20,14 @@ const Navbar = () => {
       {/* Main Navbar Container */}
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-full backdrop-blur-lg relative z-10">
         {/* Logo */}
-        <a href="/" className="text-3xl font-extrabold flex items-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-500 hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">
+        <Link href="/" className="text-3xl font-extrabold flex items-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-500 hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">
           Agentia World
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6 font-['sansation']">
           {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
-            <a
+            <Link
               key={item}
               href={`/${item.toLowerCase()}`}
               className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
@@ -34,7 +39,7 @@ const Navbar = () => {
               <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
                 →
               </span>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -61,74 +66,58 @@ const Navbar = () => {
           ></span>
         </a>
 
-        {/* Mobile Menu Toggle */}
-        <Menu as="div" className="md:hidden relative">
-          <Menu.Button className="text-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2">
-            <Bars3Icon className="h-6 w-6" />
-          </Menu.Button>
+        {/* Mobile Menu Toggle with ChadCN Sheet */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <button
+              className="md:hidden text-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2"
+              aria-label="Toggle Menu"
+            >
+              <Menu size={28} />
+            </button>
+          </SheetTrigger>
+          <SheetContent side="left" className="bg-black/90 text-white p-6 backdrop-blur-lg border-none">
+            {/* Close Button */}
+            <button
+              className="absolute top-4 right-4 text-gray-300 text-2xl"
+              onClick={() => {}}
+              aria-label="Close Menu"
+            >
+              <X size={28} />
+            </button>
 
-          {/* Mobile Menu */}
-          <Transition
-            show={true}
-            enter="transition-opacity ease-in duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-out duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <Menu.Items className="absolute top-20 left-0 w-full bg-black/80 backdrop-blur-lg p-6 flex flex-col space-y-4">
-              {/* Close Button */}
-              <div className="absolute top-4 right-4">
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      className="text-gray-300 text-2xl"
-                      onClick={() => {}}
-                    >
-                      <XMarkIcon className="h-6 w-6" />
-                    </button>
-                  )}
-                </Menu.Item>
-              </div>
-
+            {/* Mobile Menu Links */}
+            <div className="flex flex-col space-y-4 mt-10">
               {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
-                <Menu.Item key={item}>
-                  {({ active }) => (
-                    <a
-                      href={`/${item.toLowerCase()}`}
-                      className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
-                    >
-                      {item}
-                      {/* Glowing Underline Effect */}
-                      <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
-                      {/* Floating Arrow */}
-                      <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
-                        →
-                      </span>
-                    </a>
-                  )}
-                </Menu.Item>
+                <Link
+                  key={item}
+                  href={`/${item.toLowerCase()}`}
+                  className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
+                >
+                  {item}
+                  {/* Glowing Underline Effect */}
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                  {/* Floating Arrow */}
+                  <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
+                    →
+                  </span>
+                </Link>
               ))}
-              <Menu.Item>
-                {({ active }) => (
-                  <a
-                    href="#"
-                    className="relative text-gray-300 hover:text-blue-500 transition-all duration-300 group"
-                  >
-                    🚀 Launch Console
-                    {/* Glowing Underline Effect */}
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
-                    {/* Floating Arrow */}
-                    <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
-                      →
-                    </span>
-                  </a>
-                )}
-              </Menu.Item>
-            </Menu.Items>
-          </Transition>
-        </Menu>
+              <a
+                href="#"
+                className="relative text-gray-300 hover:text-blue-500 transition-all duration-300 group"
+              >
+                🚀 Launch Console
+                {/* Glowing Underline Effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                {/* Floating Arrow */}
+                <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
+                  →
+                </span>
+              </a>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );
