@@ -13,17 +13,16 @@ const Hero = () => {
 
       return (
         <div
-          key={i}
-          className="star"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            width: `${size}px`,
-            height: `${size}px`,
-            animationDuration: `${duration}s`,
-            animationName: "twinkle",
-            position: "absolute",
-            willChange: "transform, opacity",
+        key={i}
+        className="star"
+        style={{
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          width: `${size}px`,
+          height: `${size}px`,
+          animation: `twinkle ${duration}s infinite alternate ease-in-out`,
+          position: "absolute",
+          willChange: "transform, opacity",
           }}
         />
       );
@@ -48,8 +47,8 @@ const Hero = () => {
           ENTERPRISE AI AGENT <span className="inline-block">For The Future</span>
         </h2>
 
-        <div className="w-full max-w-lg flex flex-col gap-2 bg-gray-800 p-4 rounded-lg mx-auto text-center items-center justify-center animate-fade-in">
-          <div className="text-lg sm:text-xl font-['sansation'] text-white text-center w-full flex items-center justify-center">
+        <div className="w-full max-w-[550px] flex flex-col gap-2 bg-gray-800 p-4 rounded-lg mx-auto text-center items-center justify-center animate-fade-in">
+          <div className="text-lg sm:text-xl font-['sansation'] text-gray-400 text-center w-full flex items-center justify-center">
             <span className="text-purple-400 mr-2">🤖</span>
             <div className="overflow-hidden">
               <Typewriter
