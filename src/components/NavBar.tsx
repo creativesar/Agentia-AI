@@ -56,7 +56,6 @@ const Navbar = () => {
             </button>
           </SheetTrigger>
           <SheetContent side="left" className="bg-black/90 text-white p-6 backdrop-blur-lg border-none">
-            <button onClick={() => setIsOpen(false)} className="absolute top-4 right-4 text-gray-300 text-2xl" aria-label="Close Menu">✕</button>
             <div className="flex flex-col space-y-4 mt-10">
               {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
                 <Link key={item} href={`/${item.toLowerCase()}`} className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group">
