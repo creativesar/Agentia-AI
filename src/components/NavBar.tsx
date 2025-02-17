@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/sheet";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="relative bg-black text-white shadow-lg h-20 w-full top-0 z-50 overflow-hidden">
       {/* Futuristic Background Elements */}
@@ -32,21 +34,14 @@ const Navbar = () => {
               className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
             >
               {item}
-              {/* Glowing Underline Effect */}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
-              {/* Floating Arrow */}
-              <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
-                →
-              </span>
+              <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">→</span>
             </Link>
           ))}
         </div>
 
         {/* Launch Console Button */}
-        <a
-          href="#"
-          className="relative hidden md:inline-flex items-center justify-center px-6 py-2 text-lg font-semibold font-['sansation'] text-white bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:bg-white/20 hover:border-white/30 group"
-        >
+        <a href="#" className="relative hidden md:inline-flex items-center justify-center px-6 py-2 text-lg font-semibold font-['sansation'] text-white bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:bg-white/20 hover:border-white/30 group">
           <span className="relative z-10">Launch Console</span>
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] transition-transform duration-[800ms] ease-in-out group-hover:translate-x-[100%]"></span>
           <span className="absolute inset-0 w-full h-full bg-white/5 opacity-10 blur-lg"></span>
@@ -54,14 +49,14 @@ const Navbar = () => {
         </a>
 
         {/* Mobile Menu Toggle */}
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <button className="md:hidden text-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2" aria-label="Toggle Menu">
+            <button onClick={() => setIsOpen(true)} className="md:hidden text-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2" aria-label="Toggle Menu">
               ☰
             </button>
           </SheetTrigger>
           <SheetContent side="left" className="bg-black/90 text-white p-6 backdrop-blur-lg border-none">
-            <button className="absolute top-4 right-4 text-gray-300 text-2xl" onClick={() => {}} aria-label="Close Menu">✕</button>
+            <button onClick={() => setIsOpen(false)} className="absolute top-4 right-4 text-gray-300 text-2xl" aria-label="Close Menu">✕</button>
             <div className="flex flex-col space-y-4 mt-10">
               {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
                 <Link key={item} href={`/${item.toLowerCase()}`} className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group">
