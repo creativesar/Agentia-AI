@@ -41,7 +41,7 @@ const Hero = () => {
           <h1 className="text-sm font-semibold font-['sansation'] text-gray-400">
             POWERED BY PANAVERSITY
           </h1>
-          <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6]" />
+          <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6]" />
         </div>
 
         <h2 className="text-4xl sm:text-7xl font-extrabold font-['sansation'] bg-clip-text text-transparent animate-gradient inline-block mb-4 animate-scale-up">
