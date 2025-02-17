@@ -67,7 +67,7 @@ const Chatbot = () => {
       {/* Chat Icon with Hover Effect */}
       <motion.div
         onClick={toggleChat}
-        className="fixed bottom-8 right-8 p-5 bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-full shadow-2xl cursor-pointer hover:shadow-3xl transition-all"
+        className="fixed bottom-8 right-8 p-5 bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-full shadow-2xl cursor-pointer hover:shadow-3xl transition-all sm:bottom-5 sm:right-5"
         whileHover={{ scale: 1.1, rotate: 15 }}
         whileTap={{ scale: 0.9 }}
         initial={{ scale: 0 }}
@@ -82,7 +82,7 @@ const Chatbot = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-8 right-8 w-full max-w-md bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-xl shadow-2xl overflow-hidden"
+            className="fixed bottom-8 right-8 w-full max-w-md bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-xl shadow-2xl overflow-hidden sm:max-w-xs sm:right-5 sm:bottom-5"
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -121,7 +121,7 @@ const Chatbot = () => {
             </div>
 
             {/* Chat Messages */}
-            <div className="h-96 overflow-y-auto p-4 space-y-3">
+            <div className="h-96 overflow-y-auto p-4 space-y-3 sm:h-80 sm:p-2">
               <AnimatePresence>
                 {messages.map((msg, i) => (
                   <motion.div
@@ -140,7 +140,7 @@ const Chatbot = () => {
                           : "bg-blue-600 text-white"
                       }`}
                     >
-                      <p className="text-sm">{msg.text}</p>
+                      <p className="text-sm sm:text-xs">{msg.text}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -167,7 +167,7 @@ const Chatbot = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 bg-gray-800">
+            <div className="p-4 bg-gray-800 sm:p-3">
               <div className="flex items-center space-x-2">
                 <input
                   type="text"
@@ -175,12 +175,12 @@ const Chatbot = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Type your message..."
-                  className="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 sm:p-2 sm:text-sm"
                 />
                 <button
                   onClick={handleSend}
                   disabled={isBotTyping}
-                  className="p-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="p-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors sm:p-2"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
