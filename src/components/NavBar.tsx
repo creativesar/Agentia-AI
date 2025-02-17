@@ -30,7 +30,7 @@ const Navbar = () => {
           {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
             <Link
               key={item}
-              href={`/${item.toLowerCase()}`}
+              href="/"
               className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
               aria-label={`Navigate to ${item}`}
             >
@@ -42,7 +42,7 @@ const Navbar = () => {
         </div>
 
         {/* Launch Console Button */}
-        <a href="#" className="relative hidden md:inline-flex items-center justify-center px-6 py-2 text-lg font-semibold font-['sansation'] text-white bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:bg-white/20 hover:border-white/30 group">
+        <a href="/" className="relative hidden md:inline-flex items-center justify-center px-6 py-2 text-lg font-semibold font-['sansation'] text-white bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:bg-white/20 hover:border-white/30 group">
           <span className="relative z-10">Launch Console</span>
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] transition-transform duration-[800ms] ease-in-out group-hover:translate-x-[100%]"></span>
           <span className="absolute inset-0 w-full h-full bg-white/5 opacity-10 blur-lg"></span>
@@ -61,7 +61,7 @@ const Navbar = () => {
               {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
                 <Link 
                   key={item} 
-                  href={`/${item.toLowerCase()}`} 
+                  href="/" 
                   className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
                   aria-label={`Navigate to ${item}`}
                 >
@@ -70,7 +70,7 @@ const Navbar = () => {
                   <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">→</span>
                 </Link>
               ))}
-              <a href="#" className="relative text-gray-300 hover:text-blue-500 transition-all duration-300 group" aria-label="Launch Console">🚀 Launch Console</a>
+              <a href="/" className="relative text-gray-300 hover:text-blue-500 transition-all duration-300 group" aria-label="Launch Console">🚀 Launch Console</a>
             </div>
           </SheetContent>
         </Sheet>
