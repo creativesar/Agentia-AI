@@ -5,6 +5,7 @@ import NeuralCapabilities from "@/components/NeuralCab";
 import AISolutions from "@/components/AISolutions";
 import PricingPlans from "@/components/PricingSelection";
 import ContactSection from "@/components/Contact";
+import Chatbot from "@/components/ChatBot";
 export default function Home() {
   return (
     <div> 
@@ -14,6 +15,7 @@ export default function Home() {
       <AISolutions />
       <PricingPlans />
       <ContactSection />
+      <Chatbot />
     </div>
   );
 }
