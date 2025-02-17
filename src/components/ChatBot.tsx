@@ -3,14 +3,15 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaCommentAlt, FaRobot, FaTimes, FaPaperPlane } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import anime from 'animejs';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([{ text: "Hello! I'm your AI assistant. How can I help you today? ✨", from: 'bot' }]);
+  const [messages, setMessages] = useState([
+    { text: "Hello! I'm your AI assistant. How can I help you today? ✨", from: 'bot' },
+  ]);
   const [input, setInput] = useState('');
   const [isBotTyping, setIsBotTyping] = useState(false);
-  const chatEndRef = useRef(null);
+  const chatEndRef = useRef<HTMLDivElement | null>(null);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -18,18 +19,20 @@ const Chatbot = () => {
 
   const handleSend = () => {
     if (!input.trim() || isBotTyping) return;
-    setMessages(prev => [...prev, { text: input, from: 'user' }]);
+    setMessages((prev) => [...prev, { text: input, from: 'user' }]);
     setInput('');
 
     setIsBotTyping(true);
     setTimeout(() => {
-      setMessages(prev => [...prev, { text: "I'm still learning, but I'll do my best to assist you! 🤖", from: 'bot' }]);
+      setMessages((prev) => [...prev, { text: "I'm still learning, but I'll do my best to assist you! 🤖", from: 'bot' }]);
       setIsBotTyping(false);
     }, 1500);
   };
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [messages]);
 
   return (
@@ -95,7 +98,7 @@ const Chatbot = () => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type your message..."
                 className="w-full p-2 bg-gray-800 rounded-lg focus:outline-none"
               />
