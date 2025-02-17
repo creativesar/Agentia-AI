@@ -1,30 +1,28 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
-import { Menu, X } from "lucide-react"; // Added X icon for close button
+import { Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"; // Using Heroicons for hamburger and close icons
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <nav className="relative bg-black text-white shadow-lg h-20 w-full top-0 z-50 overflow-hidden">
       {/* Futuristic Background Elements */}
       <div className="absolute inset-0 w-full h-full bg-[url('/images/particle-bg.svg')] bg-cover opacity-15 animate-particles pointer-events-none -z-[1]" />
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-radial-gradient from-purple-500/30 to-transparent rounded-full opacity-40 animate-float-1 blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-rial-gradient from-blue-500/30 to-transparent rounded-full opacity-40 animate-float-2 blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-radial-gradient from-blue-500/30 to-transparent rounded-full opacity-40 animate-float-2 blur-3xl" />
       <div className="absolute inset-0 w-full h-full bg-[url('/images/holographic-grid.svg')] bg-top bg-cover opacity-5 animate-grid-pan pointer-events-none" />
 
       {/* Main Navbar Container */}
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-full backdrop-blur-lg relative z-10">
         {/* Logo */}
-        <Link href="/" className="text-3xl font-extrabold flex items-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-500 hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">
+        <a href="/" className="text-3xl font-extrabold flex items-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-500 hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">
           Agentia World
-        </Link>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6 font-['sansation']">
           {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
-            <Link
+            <a
               key={item}
               href={`/${item.toLowerCase()}`}
               className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
@@ -36,7 +34,7 @@ const Navbar = () => {
               <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
                 →
               </span>
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -64,60 +62,74 @@ const Navbar = () => {
         </a>
 
         {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle Menu"
-        >
-          <Menu size={28} />
-        </button>
+        <Menu as="div" className="md:hidden relative">
+          <Menu.Button className="text-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2">
+            <Bars3Icon className="h-6 w-6" />
+          </Menu.Button>
+
+          {/* Mobile Menu */}
+          <Transition
+            show={true}
+            enter="transition-opacity ease-in duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-out duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <Menu.Items className="absolute top-20 left-0 w-full bg-black/80 backdrop-blur-lg p-6 flex flex-col space-y-4">
+              {/* Close Button */}
+              <div className="absolute top-4 right-4">
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className="text-gray-300 text-2xl"
+                      onClick={() => {}}
+                    >
+                      <XMarkIcon className="h-6 w-6" />
+                    </button>
+                  )}
+                </Menu.Item>
+              </div>
+
+              {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
+                <Menu.Item key={item}>
+                  {({ active }) => (
+                    <a
+                      href={`/${item.toLowerCase()}`}
+                      className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
+                    >
+                      {item}
+                      {/* Glowing Underline Effect */}
+                      <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                      {/* Floating Arrow */}
+                      <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
+                        →
+                      </span>
+                    </a>
+                  )}
+                </Menu.Item>
+              ))}
+              <Menu.Item>
+                {({ active }) => (
+                  <a
+                    href="#"
+                    className="relative text-gray-300 hover:text-blue-500 transition-all duration-300 group"
+                  >
+                    🚀 Launch Console
+                    {/* Glowing Underline Effect */}
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                    {/* Floating Arrow */}
+                    <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
+                      →
+                    </span>
+                  </a>
+                )}
+              </Menu.Item>
+            </Menu.Items>
+          </Transition>
+        </Menu>
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div
-          className="md:hidden bg-black/80 backdrop-blur-lg p-6 absolute top-20 w-full flex flex-col space-y-4 transition-all duration-300 ease-in-out animate-fadeIn"
-        >
-          {/* Close Button */}
-          <button
-            onClick={() => setIsOpen(false)}
-            className="text-gray-300 text-2xl absolute top-4 right-4"
-            aria-label="Close Menu"
-          >
-            <X size={28} />
-          </button>
-
-          {["Features", "Technology", "Agent", "Pricing", "Contact"].map((item) => (
-            <Link
-              key={item}
-              href={`/${item.toLowerCase()}`}
-              className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group"
-              onClick={() => setIsOpen(false)}  // Close menu when link is clicked
-            >
-              {item}
-              {/* Glowing Underline Effect */}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
-              {/* Floating Arrow */}
-              <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
-                →
-              </span>
-            </Link>
-          ))}
-          <a
-            href="#"
-            className="relative text-gray-300 hover:text-blue-500 transition-all duration-300 group"
-            onClick={() => setIsOpen(false)}
-          >
-            🚀 Launch Console
-            {/* Glowing Underline Effect */}
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
-            {/* Floating Arrow */}
-            <span className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300">
-              →
-            </span>
-          </a>
-        </div>
-      )}
     </nav>
   );
 };
