@@ -12,7 +12,7 @@ const AISection = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-4xl md:text-5xl font-bold font-['sansation'] bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
         >
           Powered by Advanced AI
         </motion.h2>
@@ -20,7 +20,7 @@ const AISection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-          className="text-gray-400 mt-3 text-lg font-bold font-['sansation']"
+          className="text-gray-400 mt-3 text-lg font-bold"
         >
           Built on cutting-edge neural architectures
         </motion.p>
@@ -49,7 +49,7 @@ const AISection = () => {
               {feature.icon}
             </motion.div>
             <h3 className="text-xl font-semibold font-['sansation'] mt-4">{feature.title}</h3>
-            <p className="text-gray-400 font-['sansation'] mt-2">{feature.description}</p>
+            <p className="text-gray-400 mt-2">{feature.description}</p>
           </motion.div>
         ))}
       </motion.div>

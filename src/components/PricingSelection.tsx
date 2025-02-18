@@ -48,10 +48,10 @@ const plans = [
 export default function PricingPlans() {
   return (
     <section className="py-20 px-8 md:px-16 lg:px-32 text-center bg-black text-white relative overflow-hidden">
-      <h2 className="text-5xl font-extrabold font-['sansation'] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-indigo-900 drop-shadow-2xl animate-pulse">
+      <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-indigo-900 drop-shadow-2xl animate-pulse">
         Choose Your Plan
       </h2>
-      <p className="mt-3 text-lg font-['sansation'] text-gray-400 max-w-3xl mx-auto">
+      <p className="mt-3 text-lg text-gray-400 max-w-3xl mx-auto">
         Scale your AI capabilities with our flexible pricing and powerful features.
       </p>
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -63,13 +63,13 @@ export default function PricingPlans() {
             }`}
           >
             {plan.highlight && (
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-purple-600 text-white text-xs font-semibold font-['sansation'] px-6 py-2 rounded-full shadow-md animate-bounce">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-purple-600 text-white text-xs font-semibold px-6 py-2 rounded-full shadow-md animate-bounce">
                 Most Popular
               </div>
             )}
-            <h3 className="text-3xl font-bold font-['sansation'] text-white">{plan.title}</h3>
-            <p className="text-5xl font-extrabold font-['sansation'] text-purple-400 drop-shadow-xl">
-              {plan.price} <span className="text-lg font-['sansation'] font-medium">{plan.period}</span>
+            <h3 className="text-3xl font-bold text-white">{plan.title}</h3>
+            <p className="text-5xl font-extrabold text-purple-400 drop-shadow-xl">
+              {plan.price} <span className="text-lg font-medium">{plan.period}</span>
             </p>
             <ul className="mt-6 space-y-3 text-gray-300 text-left">
               {plan.features.map((feature, idx) => (
@@ -80,7 +80,7 @@ export default function PricingPlans() {
             </ul>
             <a
               href="#"
-              className="relative mt-8 w-full py-4 flex items-center justify-center text-lg font-semibold font-['sansation'] text-white 
+              className="relative mt-8 w-full py-4 flex items-center justify-center text-lg font-semibold text-white 
                          bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-xl overflow-hidden 
                          transition-all duration-300 hover:bg-white/20 hover:border-white/30 group"
             >

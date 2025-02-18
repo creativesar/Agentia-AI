@@ -42,11 +42,11 @@ export default function AISolutions() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
-        className="text-6xl font-extrabold font-['sansation'] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 drop-shadow-2xl"
+        className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 drop-shadow-2xl"
       >
         Next-Gen AI Solutions
       </motion.h2>
-      <p className="text-gray-400 mt-3 font-['sansation'] text-lg">Revolutionizing industries with cutting-edge intelligence</p>
+      <p className="text-gray-400 mt-3 text-lg">Revolutionizing industries with cutting-edge intelligence</p>
       <div className="grid md:grid-cols-3 gap-10 mt-10 px-6 md:px-20 relative z-10">
         {solutions.map((solution, index) => (
           <motion.div
@@ -69,8 +69,8 @@ export default function AISolutions() {
             >
               {solution.icon}
             </motion.div>
-            <h3 className="text-2xl font-bold font-['sansation'] text-indigo-300">{solution.title}</h3>
-            <p className="text-gray-400 mt-3 font-['sansation'] leading-relaxed">{solution.description}</p>
+            <h3 className="text-2xl font-bold text-indigo-300">{solution.title}</h3>
+            <p className="text-gray-400 mt-3 leading-relaxed">{solution.description}</p>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.3, scale: [1, 1.2, 1] }}

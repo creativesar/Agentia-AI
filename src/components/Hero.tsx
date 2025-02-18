@@ -13,16 +13,17 @@ const Hero = () => {
 
       return (
         <div
-        key={i}
-        className="star"
-        style={{
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          width: `${size}px`,
-          height: `${size}px`,
-          animation: `twinkle ${duration}s infinite alternate ease-in-out`,
-          position: "absolute",
-          willChange: "transform, opacity",
+          key={i}
+          className="star"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            width: `${size}px`,
+            height: `${size}px`,
+            animationDuration: `${duration}s`,
+            animationName: "twinkle",
+            position: "absolute",
+            willChange: "transform, opacity",
           }}
         />
       );
@@ -37,18 +38,18 @@ const Hero = () => {
 
       <div className="max-w-4xl mx-auto relative z-10 px-4">
         <div className="flex items-center justify-center mb-4 space-x-3 animate-fade-in">
-          <h1 className="text-sm font-semibold font-['sansation'] text-gray-400">
+          <h1 className="text-sm font-semibold text-gray-400">
             POWERED BY PANAVERSITY
           </h1>
-          <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6]" />
+          <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6]" />
         </div>
 
-        <h2 className="text-4xl sm:text-7xl font-extrabold font-['sansation'] bg-clip-text text-transparent animate-gradient inline-block mb-4 animate-scale-up">
+        <h2 className="text-4xl sm:text-7xl font-extrabold bg-clip-text text-transparent animate-gradient inline-block mb-4 animate-scale-up">
           ENTERPRISE AI AGENT <span className="inline-block">For The Future</span>
         </h2>
 
-        <div className="w-full max-w-[550px] flex flex-col gap-2 bg-gray-800 p-4 rounded-lg mx-auto text-center items-center justify-center animate-fade-in">
-          <div className="text-lg sm:text-xl font-['sansation'] text-gray-400 text-center w-full flex items-center justify-center">
+        <div className="w-full max-w-lg flex flex-col gap-2 bg-gray-800 p-4 rounded-lg mx-auto text-center items-center justify-center animate-fade-in">
+          <div className="text-lg sm:text-xl text-white text-center w-full flex items-center justify-center">
             <span className="text-purple-400 mr-2">🤖</span>
             <div className="overflow-hidden">
               <Typewriter
@@ -82,7 +83,7 @@ const Button = ({ text }: { text: string }) => {
   return (
     <a
       href="#"
-      className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold font-['sansation'] text-white 
+      className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold text-white 
                  bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-lg overflow-hidden 
                  transition-all duration-300 hover:bg-white/20 hover:border-white/30 group transform hover:scale-105"
     >

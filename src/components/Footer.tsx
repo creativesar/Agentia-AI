@@ -23,7 +23,7 @@ export default function Footer() {
             <h2 className="text-4xl font-extrabold flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-500 hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">
               Agentia World
             </h2>
-            <p className="text-gray-400 mt-3 text-sm font-['sansation'] leading-relaxed max-w-lg mx-auto">
+            <p className="text-gray-400 mt-3 text-sm leading-relaxed max-w-lg mx-auto">
               AI-powered solutions for the future of enterprise intelligence. Experience the revolution.
             </p>
             <div className="flex justify-center gap-6 mt-6">
@@ -59,7 +59,7 @@ export default function Footer() {
               <h3 className="text-xl font-semibold mb-5 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent group-hover:text-purple-400 transition-colors duration-300">
                 {title}
               </h3>
-              <ul className="text-gray-400 font-['sansation'] space-y-4 text-sm">
+              <ul className="text-gray-400 space-y-4 text-sm">
                 {links.map((link, linkIndex) => (
                   <li key={link} className="relative overflow-hidden">
                     <Link

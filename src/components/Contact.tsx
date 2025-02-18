@@ -11,16 +11,16 @@ const ContactSection = () => {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 relative z-10">
         {/* Contact Info */}
         <div>
-          <h2 className="text-5xl font-extrabold font-['sansation'] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+          <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
             Get in Touch
           </h2>
-          <p className="text-gray-400 mt-4 text-lg font-['sansation']">Ready to transform your business with AI?</p>
+          <p className="text-gray-400 mt-4 text-lg">Ready to transform your business with AI?</p>
           <div className="mt-8 space-y-5 text-lg">
-            <div className="flex items-center gap-4 text-gray-300 font-['sansation']">
+            <div className="flex items-center gap-4 text-gray-300">
               <FaEnvelope className="text-purple-400 text-2xl" />
               <span className="hover:text-white transition">contact@agentiaworld.com</span>
             </div>
-            <div className="flex items-center gap-4 text-gray-300 font-['sansation']">
+            <div className="flex items-center gap-4 text-gray-300">
               <FaGlobe className="text-purple-400 text-2xl" />
               <span className="hover:text-white transition ">www.agentiaworld.com</span>
             </div>
@@ -45,27 +45,27 @@ const ContactSection = () => {
             <input
               type="text"
               placeholder="First Name"
-              className="w-full p-4 bg-gray-800 font-['sansation'] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg"
+              className="w-full p-4 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg"
             />
             <input
               type="text"
               placeholder="Last Name"
-              className="w-full p-4 bg-gray-800 font-['sansation'] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg"
+              className="w-full p-4 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg"
             />
           </div>
           <input
             type="email"
             placeholder="Email Address"
-            className="w-full mt-6 p-4 bg-gray-800 font-['sansation'] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg"
+            className="w-full mt-6 p-4 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg"
           />
           <textarea
             placeholder="Your Message"
-            className="w-full mt-6 p-4 font-['sansation'] bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg"
+            className="w-full mt-6 p-4 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg"
             rows={4}
           ></textarea>
           <a
             href="#"
-            className="relative inline-flex items-center justify-center px-6 py-3 mt-6 text-lg font-semibold font-['sansation'] text-white 
+            className="relative inline-flex items-center justify-center px-6 py-3 mt-6 text-lg font-semibold text-white 
                      bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-lg overflow-hidden 
                      transition-all duration-300 hover:bg-white/20 hover:border-white/30 group"
           >
